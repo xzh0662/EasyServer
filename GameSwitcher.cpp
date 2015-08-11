@@ -9,8 +9,7 @@
 
 #include "GameSwitcher.h"
 #include "stdio.h"
-
-//#include "GateMonitor.h"
+#include "GateMonitor.h"
 
 GameSwitcher::GameSwitcher(void)
 	: index_(-1)
@@ -141,9 +140,7 @@ int GameSwitcher::endWithName(void)
 
 int GameSwitcher::runGate(void)
 {
-//	GATE_MONITOR->eventBase(this->eventBase());
-//	GATE_MONITOR->init();
-//	GATE_MONITOR->start();
+	GATE_MONITOR->start();
 
 	printf("GameSwitcher::runGate\n");
 	return 0;
