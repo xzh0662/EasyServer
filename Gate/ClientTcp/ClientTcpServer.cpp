@@ -8,6 +8,7 @@
 #include "ClientTcpServer.h"
 #include "GameSwitcher.h"
 #include "stdio.h"
+#include "InetAddr.h"
 
 ClientTcpServer::ClientTcpServer(void)
 {
@@ -42,7 +43,8 @@ void ClientTcpServer::destroy(void)
 int ClientTcpServer::start(void)
 {
 	this->eventBase(GAME_SWITCHER->eventBase());
-
+	InetAddr addr(1234);
+	this->listen(addr);
 	return 0;
 }
 
