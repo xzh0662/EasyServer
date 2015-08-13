@@ -9,6 +9,7 @@
 #include "GameSwitcher.h"
 #include "stdio.h"
 #include "InetAddr.h"
+#include "Buffer.h"
 
 ClientTcpServer::ClientTcpServer(void)
 {
@@ -60,8 +61,11 @@ int ClientTcpServer::receive(int fd, Buffer *buffer)
 	{
 		return -1;
 	}
+	buffer->addBeginShort(50);
+	std::string str;
+	*buffer >> str;
 
-	printf("ClientTcpServer::receive");
+	printf("ClientTcpServer::receive %s\n", str.c_str());
 
 	return 0;
 }
