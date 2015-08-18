@@ -67,6 +67,12 @@ int ClientTcpServer::receive(int fd, Buffer *buffer)
 
 	printf("ClientTcpServer::receive %s\n", str.c_str());
 
+	{
+		Buffer *buf;
+		BUFFER_NEW_RETURN(buf, 1024, -1);
+		*buf << str;
+		this->send(fd, buf);
+	}
 	return 0;
 }
 
