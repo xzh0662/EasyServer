@@ -61,7 +61,9 @@ int ClientTcpServer::receive(int fd, Buffer *buffer)
 	{
 		return -1;
 	}
-	buffer->addBeginShort(50);
+	//buffer->addBeginShort(50);
+
+	printf("buffer len %d\n", buffer->Length());
 	std::string str;
 	*buffer >> str;
 
