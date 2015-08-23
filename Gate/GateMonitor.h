@@ -8,6 +8,8 @@
 #ifndef GATEMONITOR_H_
 #define GATEMONITOR_H_
 
+class SsdbClient;
+
 class GateMonitor
 {
 private:
@@ -23,6 +25,8 @@ public:
 
 private:
 	static GateMonitor* instance_;
+
+	SsdbClient* ssdbClient_;
 };
 
 #define GATE_MONITOR GateMonitor::instance()
