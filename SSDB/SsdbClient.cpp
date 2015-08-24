@@ -51,6 +51,10 @@ int SsdbClient::receive(int fd, Buffer *buffer)
 		{
 			size_t outLen;
 			char* recvLine = this->recvBuf_->readLine(&outLen);
+			if (!recvLine)
+			{
+				break;
+			}
 			if (outLen == 0)
 			{
 				int resLen = this->oneRes_.size();
